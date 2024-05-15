@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CounterMotinor.Infrastructure.DataAccess;
 
-internal sealed class CounterMonitorContext(DbContextOptions<CounterMonitorContext> options) : DbContext(options)
+public sealed class CounterMonitorContext(DbContextOptions<CounterMonitorContext> options) : DbContext(options)
 {
   public DbSet<Counter> Counters => Set<Counter>();
 
