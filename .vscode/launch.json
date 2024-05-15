@@ -5,14 +5,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Bookings API",
+      "name": "Debug Counter Monitor API",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "launchSettingsFilePath": "${workspaceFolder}/backend/Api/Properties/launchSettings.Development.json",
-      "launchSettingsProfile": "https",
+      "postDebugTask": "stopContainers",
       "program": "${workspaceFolder}/backend/Api/bin/Debug/net8.0/CounterMonitor.Api.dll",
-      "console": "integratedTerminal"
+      "cwd": "${workspaceFolder}/backend/Api",
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      }
     }
   ]
 }
