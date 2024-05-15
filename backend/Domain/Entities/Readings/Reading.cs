@@ -8,13 +8,11 @@ public sealed class Reading
 
   public DateTimeOffset Date { get; }
 
-  public Counter Counter { get; }
-
   public NonNegativeDouble Value { get; }
 
-  private Reading(ReadingId id, DateTimeOffset date, Counter counter, NonNegativeDouble value) =>
-    (Id, Date, Counter, Value) = (id, date, counter, value);
+  private Reading(ReadingId id, DateTimeOffset date, NonNegativeDouble value) =>
+    (Id, Date, Value) = (id, date, value);
 
-  public static Reading Create(DateTimeOffset date, Counter counter, double value) =>
-    new(ReadingId.Empty, date, counter, NonNegativeDouble.Create(value));
+  public static Reading Create(DateTimeOffset date, double value) =>
+    new(ReadingId.Empty, date, NonNegativeDouble.Create(value));
 }

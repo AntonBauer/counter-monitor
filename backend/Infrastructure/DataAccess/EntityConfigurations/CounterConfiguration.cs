@@ -17,5 +17,10 @@ internal sealed class CounterConfiguration : IEntityTypeConfiguration<Counter>
     builder.Property(counter => counter.Name)
            .IsRequired()
            .HasConversion(name => name.Value, value => NonEmptyString.Create(value));
+
+    builder.HasMany(counter => counter.Readings)
+           .WithOne()
+           .IsRequired()
+           .OnDelete(DeleteBehavior.Cascade);
   }
 }

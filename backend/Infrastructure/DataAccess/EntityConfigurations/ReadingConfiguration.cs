@@ -19,10 +19,5 @@ internal sealed class ReadingConfiguration : IEntityTypeConfiguration<Reading>
     builder.Property(reading => reading.Value)
            .IsRequired()
            .HasConversion(value => value.Value, value => NonNegativeDouble.Create(value));
-
-    builder.HasOne(reading => reading.Counter)
-           .WithMany()
-           .IsRequired()
-           .OnDelete(DeleteBehavior.Cascade);
   }
 }
