@@ -1,0 +1,28 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "runContainers",
+      "type": "shell",
+      "command": "docker compose -f ${workspaceFolder}/dev_containers/compose.yaml up -d"
+    },
+    {
+      "label": "stopContainers",
+      "type": "shell",
+      "command": "docker compose -f ${workspaceFolder}/dev_containers/compose.yaml down"
+    },
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/backend/CounterMonitor.sln"
+      ],
+      "problemMatcher": "$msCompile",
+      "dependsOn": "runContainers"
+    }
+  ]
+}
