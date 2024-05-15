@@ -8,5 +8,6 @@ public static class ServiceCollectionExtensions
 {
   public static IServiceCollection AddUseCases(this IServiceCollection services,
                                                IConfiguration configuration) =>
-    services.AddDataAccess(configuration);
+    services.AddDataAccess(configuration)
+            .AddCreateCounter();
 }

@@ -1,4 +1,5 @@
 using CounterMonitor.UseCases;
+using CounterMonitor.UseCases.CreateCounter;
 
 var builder = WebApplication.CreateBuilder(args);
 
