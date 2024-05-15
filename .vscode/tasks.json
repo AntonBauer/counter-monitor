@@ -23,6 +23,28 @@
       ],
       "problemMatcher": "$msCompile",
       "dependsOn": "runContainers"
+    },
+    {
+      "label": "addMigration",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "ef",
+        "migrations",
+        "add",
+        "${input:migrationName}",
+        "--startup-project",
+        "${workspaceFolder}/backend/Api",
+        "--project",
+        "${workspaceFolder}/backend/Infrastructure/DataAccess"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "migrationName",
+      "description": "Migration name",
+      "type":"promptString"
     }
   ]
 }
