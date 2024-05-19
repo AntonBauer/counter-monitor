@@ -12,11 +12,11 @@ internal sealed class CounterConfiguration : IEntityTypeConfiguration<Counter>
     builder.HasKey(counter => counter.Id);
 
     builder.Property(counter => counter.Id)
-           .HasConversion(id => id.Value, value => CounterId.Create(value));
+           .HasConversion(id => id.Value, value => CounterId.CreateFrom(value));
                         
     builder.Property(counter => counter.Name)
            .IsRequired()
-           .HasConversion(name => name.Value, value => NonEmptyString.Create(value));
+           .HasConversion(name => name.Value, value => NonEmptyString.CreateFrom(value));
 
     builder.HasMany(counter => counter.Readings)
            .WithOne()

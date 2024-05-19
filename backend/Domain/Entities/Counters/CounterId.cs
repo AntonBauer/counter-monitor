@@ -8,7 +8,9 @@ public readonly record struct CounterId
 
     private CounterId(Guid value) => Value = value;
 
-    public static CounterId Create(Guid value) => new(value);
+    public static CounterId Create() => new(Guid.NewGuid());
+
+    public static CounterId CreateFrom(Guid value) => new(value);
 
     public static implicit operator Guid(CounterId id) => id.Value;
 
