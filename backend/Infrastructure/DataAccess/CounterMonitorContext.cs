@@ -8,6 +8,6 @@ public sealed class CounterMonitorContext(DbContextOptions<CounterMonitorContext
   public DbSet<Counter> Counters => Set<Counter>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder) =>
-    modelBuilder.ApplyConfigurationsFromAssembly(typeof(CounterMonitorContext).Assembly)
-                .HasDefaultSchema("monitor");
+  modelBuilder.ApplyConfigurationsFromAssembly(typeof(CounterMonitorContext).Assembly)
+              .HasDefaultSchema("monitor");
 }

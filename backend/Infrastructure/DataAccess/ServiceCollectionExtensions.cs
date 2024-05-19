@@ -10,6 +10,7 @@ public static class ServiceCollectionExtensions
   public static IServiceCollection AddDataAccess(this IServiceCollection services,
                                                  IConfiguration configuration) =>
     services.AddDbContext<CounterMonitorContext>(options =>
-      options.UseNpgsql(configuration.GetConnectionString(ConnectionStringName)));
+      options.UseNpgsql(configuration.GetConnectionString(ConnectionStringName),
+                        options => options.MigrationsHistoryTable("CounterMonitorMigrations", "monitor")));
 
 }

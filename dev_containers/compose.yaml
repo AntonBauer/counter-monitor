@@ -1,13 +1,27 @@
 services:
   postgres:
-    container_name: dev_postgres
-    image: postgres:16.3-alpine
+    container_name: counters_dev_postgres
+    restart: always
+    image: postgres
     environment:
       POSTGRES_PASSWORD: pass
     volumes:
        - postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: counters_dev_pgadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@email.com
+      PGADMIN_DEFAULT_PASSWORD: pass 
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
   
 volumes:
     postgres:
+    pgadmin-data:

@@ -24,4 +24,4 @@ app.AddUseCases();
 if (!app.Environment.IsProduction())
     await app.MigrateDatabase();
 
-app.Run();
+await app.RunAsync();
