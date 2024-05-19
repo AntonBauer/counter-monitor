@@ -1,5 +1,5 @@
-using CounterMonitor.UseCases.CreateCounter;
-using CounterMonitor.UseCases.ReadAllCounters;
+using CounterMonitor.UseCases.CreateCounter.Extensions;
+using CounterMonitor.UseCases.ReadAllCounters.Extensions;
 using Microsoft.AspNetCore.Routing;
 
 namespace CounterMonitor.UseCases;

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
-namespace CounterMonitor.UseCases.ReadAllCounters;
+namespace CounterMonitor.UseCases.ReadAllCounters.Extensions;
 
 internal static class WebApplicationExtensions
 {

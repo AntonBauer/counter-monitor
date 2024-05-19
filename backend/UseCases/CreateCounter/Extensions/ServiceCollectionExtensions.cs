@@ -1,7 +1,7 @@
 using CounterMonitor.UseCases.CreateCounter.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CounterMonitor.UseCases.CreateCounter;
+namespace CounterMonitor.UseCases.CreateCounter.Extensions;
 
 internal static class ServiceCollectionExtensions
 {
