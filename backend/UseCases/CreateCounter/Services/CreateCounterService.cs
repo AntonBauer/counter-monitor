@@ -9,11 +9,12 @@ internal sealed class CreateCounterService(CounterMonitorContext context)
 {
   public async Task<CreatedCounterDto> Create(string name, CancellationToken cancellationToken)
   {
-    var counter = Counter.Create(name);
+    // ToDo: check how to deal with IO
+    var counter = Counter.Create(name).ToArr().First().Success;
 
     context.Counters.Add(counter);
     await context.SaveChangesAsync(cancellationToken);
-    
+
     return counter.ToCreatedCounterDto();
   }
 }
