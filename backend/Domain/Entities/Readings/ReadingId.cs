@@ -1,16 +1,14 @@
+using GeneralDomain.Entities;
+
 namespace CounterMotinor.Domain.Entities.Readings;
 
-public readonly record struct ReadingId
+public record ReadingId : Id<Guid>
 {
-    public Guid Value { get; }
+    public static readonly ReadingId Empty = new(Guid.Empty);
 
-    public static ReadingId Empty { get; } = new(Guid.Empty);
+    private ReadingId(Guid value) : base(value) { }
 
-    private ReadingId(Guid value) => Value = value;
+    public static ReadingId CreateNew() => new(Guid.NewGuid());
 
-    public static ReadingId Create(Guid value) => new(value);
-
-    public static implicit operator Guid(ReadingId id) => id.Value;
-
-    override public string ToString() => Value.ToString();
+    public static ReadingId CreateFrom(Guid value) => new(value);
 }

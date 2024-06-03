@@ -11,7 +11,7 @@ internal sealed class ReadingConfiguration : IEntityTypeConfiguration<Reading>
     builder.HasKey(reading => reading.Id);
 
     builder.Property(reading => reading.Id)
-           .HasConversion(id => id.Value, value => ReadingId.Create(value));
+           .HasConversion(id => id.Value, value => ReadingId.CreateFrom(value));
 
     builder.Property(reading => reading.Date)
            .IsRequired();

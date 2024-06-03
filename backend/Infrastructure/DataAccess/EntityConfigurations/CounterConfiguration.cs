@@ -1,5 +1,6 @@
-using CounterMotinor.Domain;
 using CounterMotinor.Domain.Entities.Counters;
+using GeneralDomain.UtilityTypes;
+using LanguageExt.SomeHelp;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -16,7 +17,7 @@ internal sealed class CounterConfiguration : IEntityTypeConfiguration<Counter>
                         
     builder.Property(counter => counter.Name)
            .IsRequired()
-           .HasConversion(name => name.Value, value => NonEmptyString.CreateFrom(value));
+           .HasConversion(name => name.Value, value => NonEmptyString.Create(value).ToSome().Value);
 
     builder.HasMany(counter => counter.Readings)
            .WithOne()
