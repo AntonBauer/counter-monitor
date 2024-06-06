@@ -1,4 +1,5 @@
 using CounterMonitor.UseCases.CreateCounter.Extensions;
+using CounterMonitor.UseCases.CreateReading.Extensions;
 using CounterMonitor.UseCases.ReadAllCounters.Extensions;
 using Microsoft.AspNetCore.Routing;
 
@@ -8,5 +9,6 @@ public static class WebApplicationExtensions
 {
   public static IEndpointRouteBuilder AddUseCases(this IEndpointRouteBuilder app) =>
     app.AddCreateCounter()
-       .AddReadAllCounters();
+       .AddReadAllCounters()
+       .AddCreateReading();
 }
