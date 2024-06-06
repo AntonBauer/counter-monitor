@@ -12,7 +12,7 @@ internal static class WebApplicationExtensions
     app.MapPost("api/counters",
                 async ([FromBody] CreateCounterRequest request,
                        [FromServices] CreateCounterService service,
-                       CancellationToken cancellationToken) => await service.Create(request.Name, cancellationToken));
+                       CancellationToken cancellationToken) => (await service.Create(request.Name, cancellationToken)).Value);
 
     return app;
   }

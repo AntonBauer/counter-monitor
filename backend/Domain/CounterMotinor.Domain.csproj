@@ -7,6 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GeneralDomain" />
+    <PackageReference Include="Abauer.GeneralDomain" />
   </ItemGroup>
 </Project>
