@@ -1,4 +1,5 @@
 using CounterMotinor.Domain.Entities.Readings;
+using GeneralDomain.UtilityTypes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,6 +19,6 @@ internal sealed class ReadingConfiguration : IEntityTypeConfiguration<Reading>
 
     builder.Property(reading => reading.Value)
            .IsRequired()
-           .HasConversion(value => value.Value, value => NonNegativeDouble.Create(value));
+           .HasConversion(value => value.Value, value => NonNegativeDouble.Create(value).Value);
   }
 }

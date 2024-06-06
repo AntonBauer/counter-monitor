@@ -1,4 +1,6 @@
+using CSharpFunctionalExtensions;
 using GeneralDomain.Entities;
+using GeneralDomain.UtilityTypes;
 
 namespace CounterMotinor.Domain.Entities.Readings;
 
@@ -11,6 +13,7 @@ public sealed class Reading : Entity<ReadingId, Guid>
   private Reading(ReadingId id, DateTimeOffset date, NonNegativeDouble value) : base(id) =>
     (Date, Value) = (date, value);
 
-  public static Reading Create(DateTimeOffset date, double value) =>
-    new(ReadingId.Empty, date, NonNegativeDouble.Create(value));
+  public static Result<Reading> Create(DateTimeOffset date, double value) =>
+    NonNegativeDouble.Create(value)
+                     .Map(validatedValue => new Reading(ReadingId.Empty, date, validatedValue));
 }
