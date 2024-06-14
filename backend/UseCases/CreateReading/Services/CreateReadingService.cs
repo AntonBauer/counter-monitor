@@ -9,7 +9,7 @@ internal sealed class CreateReadingService(CounterMonitorContext context)
   {
     var counter = await context.Counters
                                .FindAsync(CounterId.CreateFrom(counterId),
-                                         cancellationToken);
+                                          cancellationToken);
 
     counter.AddReading(date, value);
 
