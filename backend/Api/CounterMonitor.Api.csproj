@@ -4,6 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <IsPublishable>true</IsPublishable>
+    <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
+    <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
+    <ContainerRepository>counter-monitor</ContainerRepository>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +22,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UseCases\CounterMonitor.UseCases.csproj" />
-    <ProjectReference Include="..\Infrastructure\DataAccess\CounterMotinor.Infrastructure.DataAccess.csproj" />
+    <ProjectReference
+      Include="..\Infrastructure\DataAccess\CounterMotinor.Infrastructure.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

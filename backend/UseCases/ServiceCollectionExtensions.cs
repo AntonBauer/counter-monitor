@@ -1,6 +1,7 @@
 using CounterMonitor.UseCases.CreateCounter.Extensions;
 using CounterMonitor.UseCases.CreateReading.Extensions;
 using CounterMonitor.UseCases.ReadAllCounters.Extensions;
+using CounterMonitor.UseCases.ReadingsForCounter.Extensions;
 using CounterMotinor.Infrastructure.DataAccess;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,5 +15,6 @@ public static class ServiceCollectionExtensions
     services.AddDataAccess(configuration)
             .AddReadAllCounters()
             .AddCreateCounter()
-            .AddCreateReading();
+            .AddCreateReading()
+            .AddReadingsForCounter();
 }
