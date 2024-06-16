@@ -38,12 +38,39 @@
         "--project",
         "${workspaceFolder}/backend/Infrastructure/DataAccess"
       ]
+    },
+    {
+      "label": "addUseCase",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "new",
+        "usecase",
+        "-n",
+        "${input:useCaseName}",
+        "-o",
+        "${workspaceFolder}/backend/UseCases/${input:useCaseName}",
+        "-db",
+        "CounterMonitorContext",
+        "-r",
+        "CounterMonitor"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ],
   "inputs": [
     {
       "id": "migrationName",
       "description": "Migration name",
+      "type":"promptString"
+    },
+    {
+      "id": "useCaseName",
+      "description": "Use case name",
       "type":"promptString"
     }
   ]
