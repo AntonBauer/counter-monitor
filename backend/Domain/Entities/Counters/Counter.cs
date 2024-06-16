@@ -19,11 +19,7 @@ public sealed class Counter : Entity<CounterId, Guid>
     NonEmptyString.Create(name)
                   .Map(validatedName => new Counter(CounterId.CreateNew(), validatedName));
 
-  public Result AddReading(DateTimeOffset date, double value)
-  {
-    var reading = Reading.Create(date, value);
-    reading.Tap(r => Readings = Readings.Add(r));
-
-    return Result.Success();
-  }
+  public Result AddReading(DateTimeOffset date, double value) =>
+    Reading.Create(date, value)
+           .Tap(reading => Readings = Readings.Add(reading));
 }
